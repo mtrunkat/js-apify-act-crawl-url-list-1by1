@@ -1,2 +1,26 @@
-# js-apify-act-crawl-url-list-1by1
-Apify.com act that takes a list of urls and starts given crawler for each of the urls
+# Crawl url list 1 by 1
+Apify.com act that takes a list of urls and starts given crawler for each of the urls.
+
+### Example input:
+
+```json
+{
+    "urlListFile": "http://dev:develop@dev.trunkat.eu/tmp/urllist.txt",
+    "crawlerId": "ytXL3jaRKwrfWC9tz",
+    "concurrency": 2
+}
+```
+
+### Possible options:
+
+Options **crawlerId**, **cocurrency** and one of **urlListFile** and **urlList** are required!
+
+|Option|Type|Description|
+-------|----|-----------|
+|urlListFile|String|Url of the texfile containing urls to be crawled with one url per line|
+|urlList|Array|Array of urls to be crawled.|
+|crawlerId|String|Crawler ID.|
+|concurrency|Number|Concurrency of crawler executions.|
+|crawlerSettings|Object|Overrides of crawler settings passed to startExecution call|
+
+
