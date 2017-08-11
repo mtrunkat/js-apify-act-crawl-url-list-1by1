@@ -1,7 +1,7 @@
 # Crawl url list 1 by 1
 Apify.com act that takes a list of urls and starts given crawler for each of the urls.
 
-Crawler is published at Apify.com as **mtrunkat/crawl-url-list-1by1**;
+Crawler is published at Apify.com as **mtrunkat/crawl-url-list-1by1**.
 
 ### Example input:
 
