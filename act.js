@@ -37,7 +37,7 @@ const getState = async (state) => {
     if (!position) return false;
 
     const urlList = await Apify.getValue('urlList');
-    const input = await Apify.getValue('input');
+    const input = await Apify.getValue('INPUT');
 
     return { position, urlList, input };
 };
