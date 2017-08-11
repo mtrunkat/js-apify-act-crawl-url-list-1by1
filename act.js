@@ -6,6 +6,11 @@ const _ = require('underscore');
 const REQUEST_EXEC_INTERVAL_MILLIS = 5000;
 const UPDATE_STATE_EVERY_MILLIS = 15000; // @TODO
 
+/**
+ * Initializes state.
+ * If option input.urlListFile is used then requests and parses the list of urls.
+ * Persists state at the state in key-value store.
+ */
 const initState = async () => {
     // Get input of your act
     const input = await Apify.getValue('INPUT');
@@ -31,7 +36,10 @@ const initState = async () => {
     return { position, urlList, input };
 };
 
-const getState = async (state) => {
+/**
+ * Loads state from key-value store.
+ */
+const getState = async () => {
     const position = await Apify.getValue('position');
 
     if (!position) return false;
@@ -42,6 +50,9 @@ const getState = async (state) => {
     return { position, urlList, input };
 };
 
+/**
+ * Waits until the given act execution gets finished and then returns it.
+ */
 const waitForFinish = async (actExecution) => {
     const updatedActExecution = await Apify.client.crawlers.getExecutionDetails({
         executionId: actExecution._id,
@@ -52,6 +63,9 @@ const waitForFinish = async (actExecution) => {
         : updatedActExecution;
 };
 
+/**
+ * Starts crawler and waits until it's finished.
+ */
 const runCrawler = async (crawlerId, url, crawlerSettings) => {
     const settings = _.isObject(crawlerSettings) ? crawlerSettings : {};
     settings.startUrls = [{ key: 'start', value: url }];
@@ -70,12 +84,17 @@ Apify.main(async () => {
     console.log('Starting with state:');
     console.log({ position, 'urlList.length': urlList.length, input });
 
+    // Persists position every UPDATE_STATE_EVERY_MILLIS milliseconds.
     const updateStateInterval = setInterval(() => {
         Apify.setValue('position', position);
         console.log('Postion persisted.');
     }, UPDATE_STATE_EVERY_MILLIS);
 
+
+    console.log('Starting pool...');
     const promiseProducer = () => {
+        if (position >= urlList.length) return;
+
         const promise = runCrawler(input.crawlerId, urlList[position], input.crawlerSettings);
 
         position ++;
@@ -83,8 +102,6 @@ Apify.main(async () => {
 
         return promise;
     };
-
-    console.log('Starting pool...');
     const pool = new PromisePool(promiseProducer, input.concurrency)
     await pool.start();
     console.log('Pool finished.');
