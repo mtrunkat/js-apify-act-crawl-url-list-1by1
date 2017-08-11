@@ -12,7 +12,7 @@ const initState = async () => {
     console.log('My input:');
     console.dir(input);
 
-    if (!input.cocurrency) throw new Error('Parameter input.concurrency is required.');
+    if (!input.concurrency) throw new Error('Parameter input.concurrency is required.');
     if (!input.crawlerId) throw new Error('Parameter input.crawlerId is required.');
 
     // Parse list of urls.
