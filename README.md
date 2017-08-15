@@ -36,10 +36,10 @@ Options **crawlerId**, **cocurrency** and one of **urlListFile** and **urlList**
 
 |Option|Type|Description|
 -------|----|-----------|
-|urlListFile|String|Url of the texfile containing urls to be crawled with one url per line|
-|urlList|Array|Array of urls to be crawled.|
-|crawlerId|String|Crawler ID.|
-|concurrency|Number|Concurrency of crawler executions.|
-|crawlerSettings|Object|Overrides of crawler settings passed to startExecution call|
+|`urlListFile`|String|Url of the texfile containing urls to be crawled with one url per line|
+|`urlList`|Array|Array of urls to be crawled.|
+|`crawlerId`|String|Crawler ID.|
+|`concurrency`|Number|Concurrency of crawler executions.|
+|`crawlerSettings`|Object|Overrides of crawler settings passed to startExecution call|
 
 
