@@ -4,7 +4,7 @@ const PromisePool = require('es6-promise-pool');
 const _ = require('underscore');
 
 const REQUEST_EXEC_INTERVAL_MILLIS = 5000;
-const UPDATE_STATE_EVERY_MILLIS = 15000; // @TODO
+const UPDATE_STATE_EVERY_MILLIS = 15000;
 
 /**
  * Initializes state.
