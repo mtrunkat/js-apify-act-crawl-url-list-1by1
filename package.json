@@ -1,0 +1,25 @@
+{
+  "name": "js-apify-crawl-url-list-1by1",
+  "version": "1.0.0",
+  "description": "Crawls given list of urls with one crawler execution per url.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mtrunkat/js-apify-crawl-url-list-1by1.git"
+  },
+  "author": "Marek Trunkát",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mtrunkat/js-apify-crawl-url-list-1by1/issues"
+  },
+  "homepage": "https://github.com/mtrunkat/js-apify-crawl-url-list-1by1#readme",
+  "dependencies": {
+    "apify": "^0.4.32",
+    "es6-promise-pool": "^2.5.0",
+    "request-promise": "^4.2.2",
+    "underscore": "^1.8.3"
+  }
+}
