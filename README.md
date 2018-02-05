@@ -6,7 +6,7 @@ Crawler is published at Apify.com as **mtrunkat/crawl-url-list-1by1**.
 
 You can start this act via POST request to following url with it's input as JSON payload:
 
-https://api.apifier.com/v2/acts/mtrunkat~crawl-url-list-1by1?token=[YOUR_API_TOKEN]
+https://api.apify.com/v2/acts/mtrunkat~crawl-url-list-1by1?token=[YOUR_API_TOKEN]
 
 ### Example input:
 
