@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/mtrunkat/js-apify-crawl-url-list-1by1#readme",
   "dependencies": {
-    "apify": "^0.4.32",
+    "apify": "^0.9.7",
     "es6-promise-pool": "^2.5.0",
     "request-promise": "^4.2.2",
     "underscore": "^1.8.3"
